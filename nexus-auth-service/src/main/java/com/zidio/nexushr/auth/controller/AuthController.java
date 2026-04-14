@@ -64,8 +64,8 @@ public class AuthController {
             user.setLastName(signUpRequest.getLastName());
             user.setEmail(signUpRequest.getEmail());
             user.setPassword(passwordEncoder.encode(signUpRequest.getPassword()));
-            user.setDepartment(signUpRequest.getDepartment());
-            user.setDesignation(signUpRequest.getDesignation());
+//            user.setDepartment(signUpRequest.getDepartment());
+//            user.setDesignation(signUpRequest.getDesignation());
             user.setStatus(EmployeeStatus.ACTIVE);
 
             // Set default role if not provided

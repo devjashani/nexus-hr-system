@@ -1,8 +1,10 @@
 package com.zidio.nexushr.auth.repository;
 
-import com.zidio.nexushr.common.model.Employee; // Corrected Path
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.zidio.nexushr.common.model.Employee;
+
 import java.util.Optional;
 
 @Repository

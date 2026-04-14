@@ -8,14 +8,15 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.UUID;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "users")
 public class Employee implements UserDetails {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     
     @Column(nullable = false)
     private String firstName;
@@ -28,10 +29,6 @@ public class Employee implements UserDetails {
     
     @Column(nullable = false)
     private String password;
-    
-    private String department;
-    
-    private String designation;
     
     private String phoneNumber;
     
@@ -51,11 +48,11 @@ public class Employee implements UserDetails {
     
     // ========== GETTERS AND SETTERS ==========
     
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
     
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
     
@@ -89,22 +86,6 @@ public class Employee implements UserDetails {
     
     public void setPassword(String password) {
         this.password = password;
-    }
-    
-    public String getDepartment() {
-        return department;
-    }
-    
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-    
-    public String getDesignation() {
-        return designation;
-    }
-    
-    public void setDesignation(String designation) {
-        this.designation = designation;
     }
     
     public String getPhoneNumber() {
@@ -207,4 +188,10 @@ public class Employee implements UserDetails {
     public boolean isEnabled() {
         return status == EmployeeStatus.ACTIVE;
     }
+    
+
+	@OneToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
 }
