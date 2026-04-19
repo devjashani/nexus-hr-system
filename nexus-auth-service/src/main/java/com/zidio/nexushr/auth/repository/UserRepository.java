@@ -6,9 +6,10 @@ import org.springframework.stereotype.Repository;
 import com.zidio.nexushr.common.model.Employee;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
-public interface UserRepository extends JpaRepository<Employee, Long> {
+public interface UserRepository extends JpaRepository<Employee, UUID> {
     Optional<Employee> findByEmail(String email);
     Boolean existsByEmail(String email);
 }
