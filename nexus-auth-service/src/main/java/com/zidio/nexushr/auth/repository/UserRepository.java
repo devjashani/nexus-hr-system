@@ -1,12 +1,15 @@
 package com.zidio.nexushr.auth.repository;
 
-import com.zidio.nexushr.common.model.Employee; // Corrected Path
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.zidio.nexushr.common.model.Employee;
+
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
-public interface UserRepository extends JpaRepository<Employee, Long> {
+public interface UserRepository extends JpaRepository<Employee, UUID> {
     Optional<Employee> findByEmail(String email);
     Boolean existsByEmail(String email);
 }
